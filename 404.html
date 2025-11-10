@@ -7,19 +7,19 @@
     // GitHub Pages SPA 路由重定向脚本
     // 当 GitHub Pages 遇到未找到的路径时，会返回这个 404.html
     // 我们捕获原始路径并重定向到 index.html，让客户端路由接管
-    
+
     (function() {
       var pathname = window.location.pathname;
       var search = window.location.search;
       var hash = window.location.hash;
-      
+
       // 将路径信息保存到 sessionStorage
       if (pathname && pathname !== '/') {
         sessionStorage.setItem('redirect', pathname + search + hash);
       }
-      
-      // 立即重定向到首页
-      window.location.replace('/');
+
+      // 重定向到 index.html 而不是根路径，避免路由冲突
+      window.location.replace('/index.html');
     })();
   </script>
 </head>
